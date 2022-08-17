@@ -3,8 +3,11 @@
 <br>
 
 ## 프로젝트 환경
-#### :pushpin: [Ganache](https://trufflesuite.com/ganache/) 설치
-![image](https://user-images.githubusercontent.com/79950504/184600686-2299196b-675d-4faa-921b-ff76f2adc837.png)
+#### :pushpin: Ganache [설치](https://trufflesuite.com/ganache/)
+- 테스트 목적으로 PC에 설치해 사용할 수 있는 간이 블록체인.
+- 네트워크와 연결할 필요없이 로컬에서 작동시킬 수 있어, 계약을 손쉽게 배포 및 테스트해볼 수 있다.
+- 이더리움 메인넷에서 테스트를 할 수 없으므로 가나슈 또는 truffle, ETH testnet을 이용할 수도 있다.
+
 
 #### :pushpin: [node js](https://nodejs.org/ko/)  설치
 ![image](https://user-images.githubusercontent.com/79950504/184600820-f91fdac7-2a41-4ab8-86fc-f99dc5077cbe.png)
