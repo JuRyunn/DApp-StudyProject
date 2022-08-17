@@ -12,7 +12,7 @@
 #### :pushpin: Truffle 설치
 - SmartContract 개발 시 개발, 배포, 테스트 환경을 제공해주는 프레임워크.
 - 테스트 자동 실행, node.js에서 동작, npm으로 설치 가능.
-```solidity
+```git
 npm install -g truffle // 설치
 truffle v // 설치확인 및 버전확인
 ```
