@@ -32,7 +32,7 @@ truffle v // 설치확인 및 버전확인
 
 <br>
 
-#### Ganache 네트워크 연결
+#### :pushpin: Ganache 네트워크 연결
 1. Metamask -> 네트워크 -> 네트워크 추가.  
 2. 다음과 같이 설정 후 저장 버튼 클릭.  
 
