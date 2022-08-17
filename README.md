@@ -35,10 +35,7 @@ truffle v // 설치확인 및 버전확인
 #### Ganache 네트워크 연결
 1. Metamask -> 네트워크 -> 네트워크 추가.  
 2. 다음과 같이 설정 후 저장 버튼 클릭.  
-
-![image](https://user-images.githubusercontent.com/79950504/185163429-2755120d-f5cb-4fc4-a34a-fc4f6a93f7a0.png)
+![image](https://user-images.githubusercontent.com/79950504/185165079-591af885-4eb6-49e3-99ab-3c40ee3f18f1.png)
   
-3. 연결성공.  
-![image](https://user-images.githubusercontent.com/79950504/185162229-83341816-877b-4f4c-9a45-15a470736a42.png)
 
 
