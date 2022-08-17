@@ -2,39 +2,41 @@ const RWD = artifacts.require('RWD')
 const Tether = artifacts.require('Tether')
 const DecentralBank = artifacts.require('DecentralBank')
 
+
 require('chai')
 .use(require('chai-as-promised'))
 .should()
 
-contract('DecentralBank', (accounts) => {
-    
+contract('DecentralBank', ([owner, customer]) => {
     let tether, rwd, decentralBank
 
     function tokens (number) {
         return web3.utils.toWei(number, 'ether')
     }
 
-    before(async () => {
-        tether= await Tether.new()
-        rwd= await RWD.new()
-        decentralBank= await DecentralBank.new(rwd.address, tether.address)
+    before(async () =>{
+        // 계약을 가져오는 곳
+        tether = await Tether.new()
+        rwd = await RWD.new()
+        decentralBank = await DecentralBank.new(rwd.address, tether.address)
     
-        await rwd.transfer(DecentralBank.address, tokens('1000000'))
+        // from reward token to Decentral Bank (1 million)
+        await rwd.transfer(decentralBank.address, tokens('1000000'))
 
-        // 고객에게 100 Moch Tkoen 전송하기
-        await tether.transfer(accounts[1], tokens('100'), {from: accounts[0]})
+        // Transfer 100 tethers to customer
+        await tether.transfer(customer, tokens('100'), {from: owner})
     })
 
-    describe('Mock Tether Deployment', async () => {
+    describe('JuRyunn Tether deployment', async () => {
         it('matches name successfully', async () => {
-            const name= await tether.name()
-            assert.equal(name, 'Mock Tether Token')
+            const name = await tether.name()
+            assert.equal(name, 'Taek Tether Token') 
         })
     })
 
-    describe('Reward Token', async () => {
+    describe('Reward Token deployment', async () => {
         it('matches name successfully', async () => {
-            const name= await reward.name()
+            const name = await rwd.name()
             assert.equal(name, 'Reward Token')
         })
     })
