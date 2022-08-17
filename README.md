@@ -26,18 +26,18 @@ truffle v // 설치확인 및 버전확인
 
 <br>
 
-#### :pushpin: Metamask : [설치하기](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=ko) 
+#### :pushpin: Metamask : [설치하기](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=ko)  
 - ETH 블록체인과 상호작용하는데 필요한 소프트웨어 암호화폐지갑.
 - 사용자는 브라우저 확장 프로그램이나 모바일 앱을 통해 ETH 지갑에 접근이 가능하며 분산 애플리케이션과 상호작용할 수 있다.
 
 <br>
 
 #### Ganache 네트워크 연결
-1. Metamask -> 네트워크 -> 네트워크 추가.
-2. 다음과 같이 설정 후 저장 버튼 클릭.
+1. Metamask -> 네트워크 -> 네트워크 추가.  
+2. 다음과 같이 설정 후 저장 버튼 클릭.  
 ![image](https://user-images.githubusercontent.com/79950504/185161321-84110ce7-0fd5-416b-b03a-415f50866a50.png)  
-
-3. 연결성공.
+  
+3. 연결성공.  
 ![image](https://user-images.githubusercontent.com/79950504/185162229-83341816-877b-4f4c-9a45-15a470736a42.png)
 
 
