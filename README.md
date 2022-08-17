@@ -20,8 +20,16 @@
 - SmartContract 개발 시 개발, 배포, 테스트 환경을 제공해주는 프레임워크.
 - 테스트 자동 실행, node.js에서 동작, npm으로 설치 가능.
 ```git
-npm install -g truffle // 설치
-truffle v // 설치확인 및 버전확인
+npm install -g truffle
+truffle v 
+```
+
+<br>
+
+#### :pushpin: Mocha : 설치
+- node.js에서 사용하는 JavaScript 테스트 프레임워크이다.
+```git
+npm install -g mocha
 ```
 
 <br>
