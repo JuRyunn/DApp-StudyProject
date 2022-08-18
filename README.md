@@ -1,22 +1,3 @@
 # DApp-StudyProject
 
-<br>
-
-## 프로젝트 환경
-#### :pushpin: [Ganache](https://trufflesuite.com/ganache/) 설치
-![image](https://user-images.githubusercontent.com/79950504/184600686-2299196b-675d-4faa-921b-ff76f2adc837.png)
-
-#### :pushpin: [node js](https://nodejs.org/ko/)  설치
-![image](https://user-images.githubusercontent.com/79950504/184600820-f91fdac7-2a41-4ab8-86fc-f99dc5077cbe.png)
-
-#### :pushpin: Truffle 설치
-```
-npm install -g truffle
-```
-![image](https://user-images.githubusercontent.com/79950504/184604649-eccd3040-dfa7-43d0-9105-3a1cf6ce8cd4.png)
-
-
-#### :pushpin: [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=ko) 설치 -> Ganache 네트워크 연결
-![image](https://user-images.githubusercontent.com/79950504/184600503-964ddc1c-a97f-4c9e-bb5b-49c3d2fc57be.png)
-
-
+#### :memo: [프로젝트 개발 환경 구축](https://github.com/JuRyunn/DApp-StudyProject/blob/main/ProjectEnvironment.md)
