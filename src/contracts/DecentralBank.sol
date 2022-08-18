@@ -44,6 +44,20 @@ function depositTokens(uint _amount) public {
 
 }
 
+    function unstakeTokens() public {
+        uint balance= stakingBalance[msg.sender];
+        require(balance>0, 'staking balance cannot be less than zero');
+    
+        tether.transfer(msg.sender, balance);
+
+        // staking balance reset
+        stakingBalance[msg.sender]= 0;
+
+        // update staking balnce staus
+        isStaking[msg.sender]= false;
+
+    }
+
     //issue rewards
     function issueTokens() public {
         

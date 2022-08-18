@@ -1,3 +1,5 @@
+const { assert } = require('console')
+
 const RWD = artifacts.require('RWD')
 const Tether = artifacts.require('Tether')
 const DecentralBank = artifacts.require('DecentralBank')
@@ -81,6 +83,11 @@ contract('DecentralBank', ([owner, customer]) => {
 
                 // Ensure Only The Owner Can Issue Tokens
                 await decentralBank.issueTokens({from:customer}).should.be.rejected;
+            
+
+                // Unstake Tokens
+                await decentralBank.unstakeTokens({from: customer})
+
             })
         })
     })
