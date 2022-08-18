@@ -18,6 +18,7 @@ contract DecentralBank {
 constructor(RWD _rwd,Tether _tether) public {
     rwd = _rwd;
     tether = _tether;
+    owner= msg.sender;
 }
 
 // 스테이킹 함수
@@ -42,4 +43,18 @@ function depositTokens(uint _amount) public {
     hasStaked[msg.sender]= true;
 
 }
-}
+
+    //issue rewards
+    function issueTokens() public {
+        
+        require(msg.sender==owner, 'caller must be the owner');
+        for(uint i= 0; i<stakers.length; i++) {
+            address recipient = stakers[i];
+            uint balance= stakingBalance[recipient] / 9;
+            
+            if(balance > 0) {
+            rwd.transfer(recipient, balance);
+            }
+        }
+    }
+} 
