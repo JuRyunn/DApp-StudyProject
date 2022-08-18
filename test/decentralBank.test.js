@@ -40,4 +40,40 @@ contract('DecentralBank', ([owner, customer]) => {
             assert.equal(name, 'Reward Token')
         })
     })
+
+    describe('Decentral Bank Deployment', async () => {
+        it('matches name successfully', async () => {
+            const name = await decentralBank.name()
+            assert.equal(name, 'Decentral Bank')
+        })
+
+        it('contract has tokens', async() => {
+            let balance= await rwd.balanceOf(decentralBank.address)
+            assert.equal(balance, tokens('1000000'))
+        })
+
+        describe('Yield Farming', async () => {
+            it('rewards tokens for staking', async () => {
+                let result
+
+                // Investor Balance 확인
+                result= await tether.balanceOf(customer)
+                assert.equal(result.toString(), tokens('100'), 'customer juryunn wallet balance before staking')
+    
+                // Customer Staking 확인
+                await tether.approve(decentralBank.address, tokens('100'), {from:  customer})
+                await decentralBank.depositTokens(tokens('100'), {from: customer})
+            
+                // Customer Updated Balance 확인
+                result= await tether.balanceOf(customer)
+                assert.equal(result.toString(), tokens('0'), 'customer juryunn wallet balance after staking 100 tokens')
+            
+                
+                // DecentralBank Updated Balance 확인
+                result= await tether.balanceOf(decentralBank.address)
+                assert.equal(result.toString(), tokens('100'), 'decentralBank juryunn wallet balance after staking from customer')
+
+            })
+        })
+    })
 })
