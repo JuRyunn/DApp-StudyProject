@@ -31,12 +31,29 @@ npm run start
     }
 ```
 
-#### Account Number 불러오기
+#### 계정정보, 네트워크 ID, 계약 불러오기
 ```JS
     async loadBlockChainData() {
-        const web3= window.web3
-        const account= await web3.eth.getAccounts()
-        this.setState({account: account[0]})
+        
+        // Load MetaMask & Account Number
+        const web3 = window.web3;
+        const account = await web3.eth.getAccounts();
+        this.setState({account: account[0]});
         console.log(account)
+
+        // Load Network ID
+        const networkId = await web3.eth.net.getId();
+
+        // Load Tether Contract
+        const tetherData = Tether.networks[networkId];
+        if(tetherData) {
+            const tether = new web3.eth.Contract(Tether.abi, tetherData.address);
+            this.setState({tether});
+            let tetherBalance = await tether.methods.balanceOf(this.state.account).call();
+            this.setState({tetherBalance: tetherBalance.toString()});
+        } 
+        else {
+            window.alert('Error! Tether contract not deployed!');
+        }
     }
 ```
