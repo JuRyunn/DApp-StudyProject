@@ -12,7 +12,7 @@ npm run start
 
 <br>
 
-#### Metamask 인식 코드
+#### ETH, Metamask 연결
 ```JS
     async componentWillMount() {
         await this.loadWeb3()
@@ -28,5 +28,14 @@ npm run start
         } else {
             window.alert('No ETH browser detected, you can check out Metamask')
         }    
+    }
+```
+
+#### Account Number 불러오기
+```JS
+    async loadBlockChainData() {
+        const web3= window.web3
+        const account= await web3.eth.getAccounts()
+        console.log(account)
     }
 ```
