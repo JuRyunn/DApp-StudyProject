@@ -36,6 +36,7 @@ npm run start
     async loadBlockChainData() {
         const web3= window.web3
         const account= await web3.eth.getAccounts()
+        this.setState({account: account[0]})
         console.log(account)
     }
 ```
