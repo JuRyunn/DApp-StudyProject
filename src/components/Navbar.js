@@ -12,7 +12,7 @@ class Navbar extends Component {
 
             <a className= 'navbar-brand col-sm-3 col-md-2 mr-0'
             style= {{color: 'white'}}> 
-            <img src= {bank} width= '50' height='30' className= 'd-inline-block align-top' alt='bank image'></img>
+            <img src= {bank} width= '50' height='30' className= 'd-inline-block align-top' alt='bank'></img>
             &nbsp; DAPP: Decentral Bank
             </a>
             <ul className='navbar-nav px-3'>
