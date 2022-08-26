@@ -3,12 +3,15 @@ import './App.css'
 import Navbar from './Navbar';
 import Web3 from 'web3';
 import Tether from '../truffle_abis/Tether.json'
+import RWD from '../truffle_abis/RWD.json'
+import DecentralBank from '../truffle_abis/DecentralBank.json'
+import { Main } from 'react-tsparticles';
 
 class App extends Component {
 
     async UNSAFE_componentWillMount() {
         await this.loadWeb3()
-        await this.loadBlockChainData()
+        await this.loadBlockchainData()
     }
 
 
@@ -23,15 +26,10 @@ class App extends Component {
         }    
     }
 
-    async loadBlockChainData() {
-        
-        // Load MetaMask & Account Number
+    async loadBlockchainData() {
         const web3 = window.web3;
         const account = await web3.eth.getAccounts();
         this.setState({account: account[0]});
-        console.log(account)
-
-        // Load Network ID
         const networkId = await web3.eth.net.getId();
 
         // Load Tether Contract
@@ -45,6 +43,33 @@ class App extends Component {
         else {
             window.alert('Error! Tether contract not deployed!');
         }
+
+        // Load RWD Contract
+        const rwdData = RWD.networks[networkId];
+        if(rwdData) {
+            const rwd = new web3.eth.Contract(RWD.abi, rwdData.address);
+            this.setState({rwd});
+            let rwdBalance = await rwd.methods.balanceOf(this.state.account).call();
+            this.setState({rwdBalance: rwdBalance.toString()});
+        } 
+        else {
+            window.alert('Error! RWD contract not deployed!');
+        }
+
+        // Load DecentralBank Contract
+        const decentralBankData = DecentralBank.networks[networkId];
+        if(decentralBankData) {
+            const decentralBank = new web3.eth.Contract(DecentralBank.abi, decentralBankData.address);
+            this.setState({decentralBank});
+            let stakingBalance = await decentralBank.methods.stakingBalance(this.state.account).call();
+            this.setState({stakingBalance: stakingBalance.toString()});
+        } 
+        else {
+            window.alert('Error! DecentralBank contract not deployed!');
+        }
+
+        // State Loading
+        this.state({loading: false})
     }
     
     
@@ -67,9 +92,14 @@ class App extends Component {
     render() {
         return (
         <div>      
-            <Navbar account= {this.state.account} />
-                <div className='text-center'>
-                    <h1></h1>
+            <Navbar account={this.state.account}/>
+            <div className='container-fluid mt-5'>
+                    <div className= 'row'>
+                    <main role='main' className='col-lg-12 ml-auto mr-auto' style={{maxWidth:'600px', minHeight:'100vm'}}>
+                    
+                        </main>
+                    </div>
+                
                 </div>
         </div>
         )
